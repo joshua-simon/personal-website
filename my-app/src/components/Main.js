@@ -17,7 +17,7 @@ const Main = () => {
                    I completed a postgrad research project on photosynthesis at Otago University ,<br></br>
                     and spent 4 years at the New Zealand School of Music studying Jazz Saxophone and Composition.<br></br>
                     A love of science and technology drew me towards programming and web development,<br></br>
-                    which led me to studying web dev bootcamp with Enspiral Dev Academy. <br></br>
+                    and I recently completed a web dev bootcamp with Enspiral Dev Academy. <br></br>
                     I'm currently looking for a front-end or full-stack role in Wellington. <br></br>
                     Please get in touch!
                    </p>
