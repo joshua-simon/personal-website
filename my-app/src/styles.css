@@ -189,7 +189,35 @@ width: 60%;
 height: 60%;
 }
 
+/* Skills */
 
+.skills-container{
+  display:flex;
+  flex-direction: row;
+  background-color: #92c7b2;
+  padding:3%;
+  align-items: center;
+  color: #2b292e;
+}
+
+.skills-container h1 {
+  flex: 0 0 20%;
+  text-align:center;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  flex: 0 0 80%;
+  row-gap:3rem;
+}
+
+
+.skills-grid-item img {
+  width:50px;
+  height:50%px;
+}
 
 
 
