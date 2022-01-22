@@ -3,6 +3,7 @@ const Header = () => {
     return (
       <header>
         <div className="header-container">
+          <p className="initials">JS</p>
             <a href="https://github.com/joshua-simon">
                 <img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png"/>
             </a>
