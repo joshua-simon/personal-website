@@ -1,0 +1,195 @@
+@import url(//db.onlinewebfonts.com/c/05428692254b58ccb090358a3dfecfff?family=Sofia+Pro);
+@font-face {font-family: "Sofia Pro"; src: url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.eot"); src: url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.woff") format("woff"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.svg#Sofia Pro") format("svg"); }
+
+
+html * {
+    padding:0;
+    margin:0;
+}
+
+
+
+body {
+    margin: 0 auto;
+    padding:0;
+    display: table;
+    height: 100%;
+    width: 100%;
+    background-color: #f0f1f6;
+    font-family: 'Sofia Pro';
+}
+
+/* Header */
+
+.header-container{
+    display:flex;
+    flex-direction:row;
+    height:38px;
+    min-height:38px;
+    background-color: #121212;
+    color:white;
+    align-items: center;
+    padding-left:10px;
+    justify-content: right;
+    padding-right: 10%;
+}
+
+img {
+    height:28px;
+    width:28px;
+    padding-right: 20px;
+    padding-top:5px;
+}
+
+/* Main */
+
+  .top-row-container {
+    display: flex;
+}
+
+.column {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-decoration: none;
+    
+  }
+  
+  .left {
+    background: #f0f1f6;
+    background-size: cover;
+    color:#3a3737;
+    flex: 0 0 40%;
+    align-items: center;
+    font-size: xx-large;
+  }
+  
+  .right {
+    background: #88B04B;
+    background-size: cover;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+  }
+
+  .right h1 {
+      padding:2%;
+  }
+
+  .right p {
+      text-align: center;
+  }
+
+  .icons{
+      display:flex;
+      flex-direction: row;
+      margin-top:5%;
+  }
+
+  label{
+      padding:10px;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text img{
+    width: 40%;
+    height:40%;
+    border-radius: 50%;
+    padding:5%;
+  }
+
+  /* Grid */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  flex: 0 0 40%;
+  grid-auto-rows: 10em;
+}
+
+.bottom-section{
+  display: flex;
+  flex-direction:row;
+}
+
+.bottom-section-left{
+  display:flex;
+  flex-direction: column;
+  flex: 0 0 60%;
+  background-color:#333036;
+  color:#f0f1f6;
+  font-size: xx-large;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item {
+display:flex;
+flex-direction: column;
+color:#333036;
+width: 100%;
+height: 100%;
+align-items: center;
+justify-content: center;
+}
+
+.card{
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding:10%;
+}
+
+.card p {
+ padding:2%;
+}
+
+.tech{
+  font-style: italic;
+}
+
+button{
+  font-family: 'Sofia Pro';
+  cursor: pointer;
+  background-color:#333036 ;
+  color:white;
+  border:none;
+  border-radius: 5%;
+  padding:3%;
+}
+
+.buttons{
+  display:flex;
+  flex-direction: row;
+}
+
+.buttons a{
+  padding:5%;
+}
+
+img{
+width: 60%;
+height: 60%;
+}
+
+
+
+
+
+
+
+
+
