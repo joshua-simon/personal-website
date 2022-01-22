@@ -25,7 +25,7 @@ const projects = [
         url: 'https://welly-coffee-review-8eda1.web.app/',
         image:wcr,
         techStack: 'React, Firebase, CSS',
-        blurb: 'A cafe review website for Wellingtons, loosely based on TripAdvisor.',
+        blurb: 'A cafe review website for Wellington, loosely based on TripAdvisor.',
         code:'https://github.com/joshua-simon/welly-coffee-review-v2'
     },
     {

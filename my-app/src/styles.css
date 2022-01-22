@@ -154,6 +154,7 @@ align-items: center;
 justify-content: center;
 text-align: center;
 padding:10%;
+font-size: small;
 }
 
 .card p {
