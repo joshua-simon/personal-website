@@ -6,7 +6,7 @@ import instagram from './images/instagram-ish.png'
 
 const projects = [
     {
-        name: 'Wellyadvisor',
+        name: 'Wellyadvisor - In Progress',
         url: 'https://welly-advisor.herokuapp.com/',
         image:wellyadvisor,
         techStack: 'React, Firebase, CSS',
