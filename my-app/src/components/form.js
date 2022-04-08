@@ -1,26 +1,73 @@
+import { useState, useEffect } from "react";
+
 const Form = () => {
+  const [{ email, password,colour }, setFormDetails] = useState({
+    email: "",
+    password: "",
+    colour: ""
+  });
+  const [isEmail, setEmail] = useState(true);
+  const [isPassword, setPassword] = useState(true);
+  const [isTigerChecked, setTigerChecked] = useState(false);
 
-    const errors ={
-        password: "Password needs to contain 8 or more characters",
-        email: "Please enter a valid email"
-    }
+  useEffect(() => {
+    document.title = 'Contact form'
+},[])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('it got here')
-    }
+
+  const errors = {
+    password: "Password needs to contain 8 or more characters",
+    email: "Please enter a valid email",
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormDetails((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
+  const validateEmailAndPassword = (email, password) => {
+    const emailRegEx =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    email.match(emailRegEx) ? setEmail(true) : setEmail(false);
+    password.length > 8 ? setPassword(true) : setPassword(false);
+  };
+  
+  const handleClick = (e) => {
+    e.target.checked ? setTigerChecked(true) : setTigerChecked(false)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validateEmailAndPassword(email, password);
+  };
 
   return (
     <div className="form-container">
       <p>Contact form</p>
-      <form onSubmit = {handleSubmit}>
-        <input className="form-element" type="text" placeholder = "Enter email address" />
-        <p className = "errors">{errors.email}</p>
-        <input className="form-element" type="password" placeholder = "Enter password"/>
-        <p className = "errors">{errors.password}</p>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="form-element"
+          type="text"
+          placeholder="Enter email address"
+          name="email"
+          onChange={handleChange}
+        />
+        <p className="errors">{!isEmail ? errors.email : null}</p>
+        <input
+          className="form-element"
+          type="password"
+          placeholder="Enter password"
+          name="password"
+          onChange={handleChange}
+        />
+        <p className="errors">{!isPassword ? errors.password : null}</p>
         <fieldset className="form-element">
           <legend>Please select a colour</legend>
-          <select name="colours" id="colours">
+          <select name="colour" id="colour" onChange = {handleChange}>
             <option value="Blue">Blue</option>
             <option value="Green">Green</option>
             <option value="Red">Red</option>
@@ -32,10 +79,15 @@ const Form = () => {
         <fieldset className="form-element">
           <legend>Please select your animals</legend>
           <div className="checkbox">
-            <input type="checkbox" id="bear" name="bear" />
+            <input type="checkbox" id="bear" name="bear"  />
             <label for="bear"> Bear</label>
             <br></br>
-            <input type="checkbox" id="Tiger" name="Tiger" />
+            <input
+              type="checkbox"
+              id="Tiger"
+              name="Tiger"
+              onClick={handleClick}
+            />
             <label for="Tiger"> Tiger</label>
             <br></br>
             <input type="checkbox" id="Snake" name="Snake" />
@@ -46,8 +98,16 @@ const Form = () => {
             <br></br>
           </div>
         </fieldset>
-        {/* <textarea id = "tiger-type" name = "tiger-type" rows="4" cols="50"/> */}
-        <button type = "submit">Submit</button>
+        {isTigerChecked ? (
+          <textarea
+            id="tiger-type"
+            name="tiger-type"
+            rows="4"
+            cols="50"
+            placeholder="Please enter type of Tiger"
+          />
+        ) : null}
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
