@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
 
 const Form = () => {
-  const [{ email, password,colour }, setFormDetails] = useState({
+  const [{ email, password, colour }, setFormDetails] = useState({
     email: "",
     password: "",
-    colour: ""
+    colour: "",
   });
   const [isEmail, setEmail] = useState(true);
   const [isPassword, setPassword] = useState(true);
   const [isTigerChecked, setTigerChecked] = useState(false);
 
   useEffect(() => {
-    document.title = 'Contact form'
-},[])
-
+    document.title = "Contact form";
+  }, []);
 
   const errors = {
     password: "Password needs to contain 8 or more characters",
@@ -35,10 +34,10 @@ const Form = () => {
     email.match(emailRegEx) ? setEmail(true) : setEmail(false);
     password.length > 8 ? setPassword(true) : setPassword(false);
   };
-  
+
   const handleClick = (e) => {
-    e.target.checked ? setTigerChecked(true) : setTigerChecked(false)
-  }
+    e.target.checked ? setTigerChecked(true) : setTigerChecked(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,7 +66,7 @@ const Form = () => {
         <p className="errors">{!isPassword ? errors.password : null}</p>
         <fieldset className="form-element">
           <legend>Please select a colour</legend>
-          <select name="colour" id="colour" onChange = {handleChange}>
+          <select name="colour" id="colour" onChange={handleChange}>
             <option value="Blue">Blue</option>
             <option value="Green">Green</option>
             <option value="Red">Red</option>
@@ -79,7 +78,7 @@ const Form = () => {
         <fieldset className="form-element">
           <legend>Please select your animals</legend>
           <div className="checkbox">
-            <input type="checkbox" id="bear" name="bear"  />
+            <input type="checkbox" id="bear" name="bear" />
             <label for="bear"> Bear</label>
             <br></br>
             <input
