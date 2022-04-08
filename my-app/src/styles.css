@@ -1,6 +1,10 @@
 @import url(//db.onlinewebfonts.com/c/05428692254b58ccb090358a3dfecfff?family=Sofia+Pro);
 @font-face {font-family: "Sofia Pro"; src: url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.eot"); src: url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.woff") format("woff"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.svg#Sofia Pro") format("svg"); }
 
+@font-face {
+  font-family: Helvetica;
+  src: url('./assets/HelveticaNeue-Light.otf');
+}
 
 html * {
     padding:0;
@@ -216,9 +220,73 @@ height: 60%;
 
 .skills-grid-item img {
   width:50px;
-  height:50%px;
+  height:50px;
 }
 
+/* ----------- Form ------------------*/
+
+.form-container{
+  width:20%;
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+  text-align:center;
+  margin-top:10%;
+  border: 1px solid rgb(179, 176, 176);
+  padding:1%;
+  background:white;
+  align-items: center;
+  border-radius: 2%;
+}
+
+.form-container form{
+  display:flex;
+  flex-direction: column;
+  width:80%;
+  margin-top:1em;
+  font-family: Helvetica;
+  font-weight:500;
+}
+
+.form-container .form-element {
+  margin:5%;
+  border:1px solid rgb(179, 176, 176);
+  border-radius: 2%;
+  padding:2%;
+}
+
+.form-container p {
+  color:#587a25;
+  font-size: x-large;
+}
+
+.form-container select {
+  border: none;
+  margin:2%;
+  font-family: Helvetica;
+}
+
+.checkbox{
+  text-align: left;
+}
+
+form .errors{
+  font-size: small;
+  color:red;
+  padding:0;
+  margin:0;
+}
+
+form button {
+  margin-top: 10%;
+  background-color: rgb(78, 78, 241);
+  border: none;
+  font-family: 'Sofia Pro';
+  color:white;
+  border-radius:3%;
+  padding:2%;
+  cursor: pointer;
+}
 
 
 

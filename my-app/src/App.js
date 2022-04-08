@@ -1,17 +1,16 @@
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Head from './Head'
+import Form from './components/form';
 import './styles.css'
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-      <Projects />
-      <Skills/>
-    </>
+    <Router>
+      <Routes>
+        <Route path = '/' exact element = {<Head/>}/>
+        <Route path = '/form'  element = {<Form/>}/>
+      </Routes>
+    </Router>
   );
 }
 
