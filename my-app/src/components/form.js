@@ -6,15 +6,14 @@ const Form = () => {
     password: "",
     colour: "",
   });
-  const [isEmail, setEmail] = useState(true);
-  const [isPassword, setPassword] = useState(true);
+  const [ errors, setErrors ] = useState({})
   const [isTigerChecked, setTigerChecked] = useState(false);
 
   useEffect(() => {
     document.title = "Contact form";
   }, []);
 
-  const errors = {
+  const errorMessages = {
     password: "Password needs to contain 8 or more characters",
     email: "Please enter a valid email",
   };
@@ -24,15 +23,23 @@ const Form = () => {
     const { name, value } = e.target;
     setFormDetails((prevForm) => ({
       ...prevForm,
-      [name]: value,
+      [name]: value
     }));
+    if(errors.name){
+      setErrors(prevState => {
+        delete prevState[name];
+        return prevState;
+      })
+    }
   };
 
   const validateEmailAndPassword = (email, password) => {
     const emailRegEx =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    email.match(emailRegEx) ? setEmail(true) : setEmail(false);
-    password.length > 8 ? setPassword(true) : setPassword(false);
+    const errorsObj = {}
+    if(!email.match(emailRegEx)) errorsObj.email = errorMessages.email;
+    if(!(password.length > 8)) errorsObj.password = errorMessages.password;
+    setErrors(errorsObj)
   };
 
   const handleClick = (e) => {
@@ -55,7 +62,7 @@ const Form = () => {
           name="email"
           onChange={handleChange}
         />
-        <p className="errors">{!isEmail ? errors.email : null}</p>
+        {!!errors.email && <p className="errors">{errors.email}</p>}
         <input
           className="form-element"
           type="password"
@@ -63,7 +70,7 @@ const Form = () => {
           name="password"
           onChange={handleChange}
         />
-        <p className="errors">{!isPassword ? errors.password : null}</p>
+        {!!errors.password && <p className="errors">{errors.password}</p>}
         <fieldset className="form-element">
           <legend>Please select a colour</legend>
           <select name="colour" id="colour" onChange={handleChange}>
