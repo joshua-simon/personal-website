@@ -1,47 +1,55 @@
 import { useState, useEffect } from "react";
 
 const Form = () => {
+  
+  //Setting state variable and set state methods
   const [{ email, password, colour }, setFormDetails] = useState({
     email: "",
     password: "",
     colour: "",
   });
-  const [ errors, setErrors ] = useState({})
+  const [errors, setErrors] = useState({});
   const [isTigerChecked, setTigerChecked] = useState(false);
 
   useEffect(() => {
     document.title = "Contact form";
   }, []);
 
-  const errorMessages = {
-    password: "Password needs to contain 8 or more characters",
-    email: "Please enter a valid email",
-  };
 
+  //Handles change in state
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     setFormDetails((prevForm) => ({
       ...prevForm,
-      [name]: value
+      [name]: value,
     }));
-    if(errors.name){
-      setErrors(prevState => {
+    if (errors.name) {
+      setErrors((prevState) => {
         delete prevState[name];
         return prevState;
-      })
+      });
     }
   };
 
+  const errorMessages = {
+    password: "Password needs to contain 8 or more characters",
+    email: "Please enter a valid email",
+  };
+
+  //Function to check that email entered is a valid address,
+  //and that passord is greater than 8 characters
   const validateEmailAndPassword = (email, password) => {
     const emailRegEx =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const errorsObj = {}
-    if(!email.match(emailRegEx)) errorsObj.email = errorMessages.email;
-    if(!(password.length > 8)) errorsObj.password = errorMessages.password;
-    setErrors(errorsObj)
+    const errorsObj = {};
+    if (!email.match(emailRegEx)) errorsObj.email = errorMessages.email;
+    if (!(password.length > 8)) errorsObj.password = errorMessages.password;
+    setErrors(errorsObj);
   };
 
+  //An event listener that flips a state variable from false to true (and vice versa) when 
+  //'Tiger' box is checked
   const handleClick = (e) => {
     e.target.checked ? setTigerChecked(true) : setTigerChecked(false);
   };
@@ -62,7 +70,9 @@ const Form = () => {
           name="email"
           onChange={handleChange}
         />
+
         {!!errors.email && <p className="errors">{errors.email}</p>}
+
         <input
           className="form-element"
           type="password"
@@ -70,7 +80,9 @@ const Form = () => {
           name="password"
           onChange={handleChange}
         />
+
         {!!errors.password && <p className="errors">{errors.password}</p>}
+
         <fieldset className="form-element">
           <legend>Please select a colour</legend>
           <select name="colour" id="colour" onChange={handleChange}>
@@ -104,6 +116,7 @@ const Form = () => {
             <br></br>
           </div>
         </fieldset>
+
         {isTigerChecked ? (
           <textarea
             id="tiger-type"
@@ -113,6 +126,7 @@ const Form = () => {
             placeholder="Please enter type of Tiger"
           />
         ) : null}
+
         <button type="submit">Submit</button>
       </form>
     </div>
